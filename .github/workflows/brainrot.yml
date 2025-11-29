@@ -13,13 +13,13 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: FFmpeg kur (çok önemli!)
-        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: FFmpeg kur
+        run: sudo apt-get update -qq && sudo apt-get install -y ffmpeg
 
-      - name: Paketleri kur
+      - name: Paketleri KUR (doğru yere!)
         run: |
           python -m pip install --upgrade pip
-          pip install moviepy numpy imageio-ffmpeg
+          python -m pip install moviepy numpy imageio-ffmpeg --no-cache-dir
 
       - name: BRAINROT ÜRET
         run: python generate_brainrot.py
